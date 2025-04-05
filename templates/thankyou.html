@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="w3-pale-yellow">
+    <div class="w3-center w3-padding-64">
+        <h1>Thank you. Here is the info you provided:</h1>
+        <hr>
+    </div>
+    <div id="table1" class="container">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>INFO</th>
+                    <th>DATA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Full Name:</td>
+                    <td>{{ session['Name'] }}</td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td>{{ session['Age'] }}</td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>{{ session['Gender'] }}</td>
+                </tr>
+                <tr>
+                    <td>Occupation Code:</td>
+                    <td>{{ session['Occupation'] }}</td>
+                </tr>
+                <tr>
+                    <td>Sleep Duration (hours):</td>
+                    <td>{{ session['Sleep Duration'] }}</td>
+                </tr>
+                <tr>
+                    <td>Quality of Sleep (1-10):</td>
+                    <td>{{ session['Quality of Sleep'] }}</td>
+                </tr>
+                <tr>
+                    <td>Physical Activity Level:</td>
+                    <td>{{ session['Physical Activity Level'] }}</td>
+                </tr>
+                <tr>
+                    <td>Stress Level (1-10):</td>
+                    <td>{{ session['Stress Level'] }}</td>
+                </tr>
+                <tr>
+                    <td>BMI Category Code:</td>
+                    <td>{{ session['BMI Category'] }}</td>
+                </tr>
+                <tr>
+                    <td>Heart Rate (bpm):</td>
+                    <td>{{ session['Heart Rate'] }}</td>
+                </tr>
+                <tr>
+                    <td>Daily Steps:</td>
+                    <td>{{ session['Daily Steps'] }}</td>
+                </tr>
+                <tr>
+                    <td>Systolic BP:</td>
+                    <td>{{ session['systolic_bp'] }}</td>
+                </tr>
+                <tr>
+                    <td>Diastolic BP:</td>
+                    <td>{{ session['diastolic_bp'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="w3-pale-blue w3-center">
+        <h1>
+            <hr>
+            <br>
+            {% if results == "None" %}
+                Congratulations {{ session['Name'] }}, our model predicts that you do not have a sleep disorder.
+            {% else %}
+                Attention {{ session['Name'] }}, our model predicts: <strong>{{ results }}</strong>.
+            {% endif %}
+        </h1>
+        <br><br><br>
+    </div>
+</div>
+{% endblock %}

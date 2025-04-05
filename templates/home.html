@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="w3-container w3-pale-yellow w3-large">
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:800px">
+            <h5 class="w3-center w3-padding-32"><span class="w3-tag w3-wide">ABOUT THE PROJECT</span></h5>
+            <h3>Sleep Disorder Prediction:</h3>
+            <p>
+                This project analyzes various lifestyle and medical variables—such as age, BMI, sleep duration, physical activity, stress levels, blood pressure, and more—to predict whether an individual has a sleep disorder (Insomnia or Sleep Apnea) or not.
+            </p>
+            <p>
+                The model is built using a Random Forest Classifier and provides a quick way to assess sleep health based on user inputs.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="w3-content" id="form1" style="max-width:800px; background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
+        <center><h1>Please fill out the form below</h1></center>
+        <hr>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.Name.label }} {{ form.Name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.Age.label }} {{ form.Age(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.Gender.label }} {{ form.Gender(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.Occupation.label }} {{ form.Occupation(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.sleep_duration.label }} {{ form.sleep_duration(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.quality_of_sleep.label }} {{ form.quality_of_sleep(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.physical_activity.label }} {{ form.physical_activity(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.stress_level.label }} {{ form.stress_level(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.bmi_category.label }} {{ form.bmi_category(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.heart_rate.label }} {{ form.heart_rate(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.daily_steps.label }} {{ form.daily_steps(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.systolic_bp.label }} {{ form.systolic_bp(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.diastolic_bp.label }} {{ form.diastolic_bp(class="form-control") }}
+            </div>
+            <div class="form-group">
+                <label for="feedback">Any additional comments?</label>
+                {{ form.feedback(class="form-control") }}
+            </div>
+            <div class="w3-center">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
